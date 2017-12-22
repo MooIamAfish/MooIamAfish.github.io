@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        ES_install · 我是一只小菜鸡
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >我是一只小菜鸡</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">ES_install</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>我是一只小菜鸡</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            ES_install
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/22</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="ElasticSearch笔记"><a href="#ElasticSearch笔记" class="headerlink" title="ElasticSearch笔记"></a>ElasticSearch笔记</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="Near-Realtime-NRT"><a href="#Near-Realtime-NRT" class="headerlink" title="Near Realtime(NRT)"></a>Near Realtime(NRT)</h3><p>ES是一款近实时的搜索平台，也就是说，提交索引到出结果会有轻微的延迟（通常约1s）</p>
+<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><p>一个集群包含了单个或多个节点（server），这些节点保存了所有的数据，并且提供了跨节点的联合索引和搜索功能。一个集群有一个唯一的标示名称，默认是 elasticsearch。这个名称非常重要，节点是根据集群的名称加入集群的，且单个节点只能是一个集群的一部分。</p>
+<p>要确保在不同的开发环境下不重用相同的集群名称，否则你的节点会加入到错误的集群。例如，你可以使用 logging-dev, logging-stage, logging-prod 分别针对开发，测试和生产环境。</p>
+<p>请注意：集群只有一个节点是完全合法的，此外，你也可以有多个独立的集群，每个集群的名称唯一。</p>
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>节点就是一台服务器，它是集群的一部分，保存了数据并且参与了集群的索引和搜索。与集群一样，节点也有唯一的标示符，它是一个随机的传奇人物名称，在集群启动的时候被分配给节点。如果你不想使用默认的名称，你可以使用任何你想要的名称。名称的重要性是出于管理目的，因为你需要知道网络中的服务器对应集群中的哪一个节点。</p>
+<p>节点可以通过配置集群名称加入指定的集群。默认地，每个节点会被加入到名为 elasticsearch 的集群，这就意味着如果你在网络中启动一系列的节点，假设这些节点可以彼此发现，它们会自动的联结并加入到名为 elasticsearch 的集群。</p>
+<p>一个单独的集群可以有任意数量的节点。此外，如果没有其他的 Elasticsearch 节点运行在你的网络中，启动一个单独的节点会默认自动加入到名为 elasticsearch 的集群。</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>索引是一系列有相似特征文档（document）的集合。例如，你有一个顾客数据的索引，一个产品类别的索引，还有一个订单数据索引。索引被一个名称（必须都为小写）所标示，这个名称在索引，搜索，更新和删除文档的时候被使用。</p>
+<p>在一个单独的集群中，你可以定义任意数量的索引。</p>
+<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>文档是可以被索引的基本数据单元。例如，你可以针对一个顾客建立一个文档，针对一个产品建立一个文档，也可以根据一个订单建立一个文档。文档使用 JSON(JavaScript Object Notation)数据格式，它是被广泛使用的互联网数据交换格式。</p>
+<p>在索引当中，你可以存储任意数量的文档。注意，虽然文档在物理上是驻留在索引当中，但是文档实际上必须被索引或分配到索引内部的一个类型（type）当中。</p>
+<h3 id="分片和副本"><a href="#分片和副本" class="headerlink" title="分片和副本"></a>分片和副本</h3><p>索引可以存储大量的数据，并且可以突破单个节点的硬件限制。例如，一个包涵10亿文档的索引会占据1TB的磁盘，单个节点也许无法容纳这么多的数据，也可能无法快速响应搜索请求。</p>
+<p>为了解决这个问题，Elasticsearch 提供了将索引切分成多个分片的能力。当你创建索引的时候，你可以指定分片的数量。每一个分片本身是拥有完整功能和独立的索引，可以放置在集群中的任意节点。</p>
+<p>分片的重要性主要体现在两个方面：<br>可以水平的切分／扩展数据集。  允许跨分片的分配和并行化操作以提高性能和吞吐量。</p>
+<p>分片的分配机制和文档聚合回搜索请求的机制是完全由 Elasticsearch 管理的，对用户是透明的。</p>
+<p>在网络／云环境下，失败是无法避免的，一旦分片／节点因为某些原因下线或消失，强烈推荐使用故障转移机制，为此，Elasticsearch 允许你为分片设置一份或多份拷贝，这些拷贝被称作副本分片，简称副本。</p>
+<p>副本的重要性体现在两个方面：<br>  一旦分片／节点出现故障，它提供了高可用性。基于这个原因，副本分片和原始分片不在同一个节点是非常有必要的。<br>    因为搜索可以并行的在所有的副本上执行，因此可以扩大搜索数据集和吞吐量。</p>
+<p>总的来说，每个索引都可以被切割成多个分片，每个索引也可以被复制零次（意味着没有副本）或多次。一旦索引被复制，每个分片就有主分片（被复制前的原始分片）和副本分片（主分片的副本）之分。分片和副本的数量可以在索引被创建的时候指定。索引创建之后，你可以动态的改变副本的数量，但是你无法改变分片的数量。</p>
+<p>默认情况下，Elasticsearch 中的索引会产生5个主分片和一个副本。如果你的集群有两个节点，每个索引将会有5个主分片和5个副本分片，总共10个分片。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="基本集群安装"><a href="#基本集群安装" class="headerlink" title="基本集群安装"></a>基本集群安装</h3><ul>
+<li>安装java</li>
+<li>下载基础软件包：  </li>
+</ul>
+<pre><code>curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.3.tar.gz
+</code></pre><ul>
+<li>解压并进入目录</li>
+</ul>
+<pre><code>tar -xvf elasticsearch-5.6.3.tar.gz
+cd elasticsearch-5.6.3
+</code></pre><ul>
+<li>创建非root用户并赋予权限</li>
+</ul>
+<pre><code>groupadd els
+useradd els -g els -p ***
+chown  -R els:els elasticsearch-5.6.3
+</code></pre><ul>
+<li>更改配置文件 config/elasticsearch.yml</li>
+</ul>
+<pre><code>cluster.name: ElasticSearchTest
+    # 集群名，位于同一集群的节点此配置相同
+network.host: 192.168.1.145
+    #绑定地址，此处为本节点IP
+discovery.zen.ping.unicast.hosts: [&quot;192.168.1.145&quot;,&quot;192.168.1.144&quot;]
+    #多播主机IP
+http.port: 9200
+    #端口号
+</code></pre><ul>
+<li>修改/etc/security/limits.conf</li>
+</ul>
+<pre><code>* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+</code></pre><ul>
+<li>修改 /etc/security/limits.d/90-nproc.conf </li>
+</ul>
+<pre><code>* soft nproc 2048
+</code></pre><ul>
+<li>修改 /etc/sysctl.conf</li>
+</ul>
+<pre><code>vm.max_map_count=655360
+</code></pre><ul>
+<li>执行</li>
+</ul>
+<pre><code>sysctl -p
+</code></pre><ul>
+<li>启动ES</li>
+</ul>
+<pre><code>. elasticsearch -d
+</code></pre><ul>
+<li>验证<br><a href="http://IP:9200" target="_blank" rel="noopener">http://IP:9200</a><br>{<br>“name” : “ox2”,<br>“cluster_name” : “ElasticSearchTest”,<br>“cluster_uuid” : “6oNSPC4OQ7q6Ip2IqRQ50Q”,<br>“version” : {<br>  “number” : “5.6.3”,<br>  “build_hash” : “1a2f265”,<br>  “build_date” : “2017-10-06T20:33:39.012Z”,<br>  “build_snapshot” : false,<br>  “lucene_version” : “6.6.1”<br>},<br>“tagline” : “You Know, for Search”<br>}</li>
+</ul>
+<hr>
+<h3 id="head安装"><a href="#head安装" class="headerlink" title="head安装"></a>head安装</h3><ul>
+<li>下载软件包，解压</li>
+</ul>
+<pre><code>wget  https://github.com/mobz/elasticsearch-head/archive/master.zip
+</code></pre><ul>
+<li>安装nodejs,npm</li>
+</ul>
+<pre><code>wget https://npm.taobao.org/mirrors/node/latest-v4.x/node-v4.4.7-linux-x64.tar.gz
+</code></pre><ul>
+<li>配置JAVA_HOME, NODE_HOME,PATH</li>
+<li>进入head目录，执行</li>
+</ul>
+<pre><code>npm install -g grunt-cli 
+npm install
+ #   如果速度较慢或者安装失败，可以使用国内镜像:
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><ul>
+<li>修改配置文件编辑elasticsearch-5.1.1/config/elasticsearch.yml,加入以下内容：</li>
+</ul>
+<pre><code>http.cors.enabled: true  
+http.cors.allow-origin: &quot;*&quot;
+</code></pre><ul>
+<li>修改HEAD目录下Gruntfile.js，找到以下内容并添加hostname项</li>
+</ul>
+<pre><code>connect: {
+    server: {
+        options: {
+            port: 9100,
+            base: &apos;.&apos;,
+            hostname:&apos;*&apos;,
+            keepalive: true
+        }
+    }
+}   
+</code></pre><ul>
+<li>修改/home/ntc/code/elasticsearch-head/_site/app.js中head的连接地址（如果配主机名，本机访问时要在本机配DNS）</li>
+</ul>
+<pre><code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://192.168.40.133:9200&quot;;
+</code></pre><ul>
+<li>运行head,在head目录下执行</li>
+</ul>
+<pre><code>grunt server &amp;
+</code></pre><hr>
+<h3 id="中文分词安装"><a href="#中文分词安装" class="headerlink" title="中文分词安装"></a>中文分词安装</h3><h4 id="网络安装"><a href="#网络安装" class="headerlink" title="网络安装"></a>网络安装</h4><pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.5.1/elasticsearch-analysis-ik-5.5.1.zip  
+    #  将数字部分根据版本号替换
+</code></pre><h4 id="离线环境"><a href="#离线环境" class="headerlink" title="离线环境"></a>离线环境</h4><ul>
+<li>解下zip包之后，将config文件夹拷贝到ES_HOME下config文件夹下，并更名为analysis-ik</li>
+<li>将其余文件（jar包和配置文件）拷贝到ES_HOME下plugins/analysis-ik文件夹下</li>
+<li>重启ES</li>
+</ul>
+<hr>
+<h3 id="Kibana安装"><a href="#Kibana安装" class="headerlink" title="Kibana安装"></a>Kibana安装</h3><ul>
+<li>下载安装包并解压<br><a href="https://artifacts.elastic.co/downloads/kibana" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/kibana</a></li>
+<li>改配置文件KIBANA_HOME/config/kibana.yml</li>
+</ul>
+<pre><code>elasticsearch.url: &quot;http://192.168.1.145:9200&quot;
+server.host: &quot;192.168.1.145&quot;  
+</code></pre><ul>
+<li>执行<br>./bin/kibana &amp;</li>
+</ul>
+<hr>
+<h3 id="Logstash安装"><a href="#Logstash安装" class="headerlink" title="Logstash安装"></a>Logstash安装</h3><ul>
+<li>下载软件包<br><a href="https://www.elastic.co/downloads/logstash" target="_blank" rel="noopener">https://www.elastic.co/downloads/logstash</a></li>
+<li>新增logstash.conf文件</li>
+</ul>
+<pre><code>input {
+ file {
+   path =&gt; [&quot;/var/opt/log/a.log&quot;,&quot;/var/opt/log/b.log&quot;]
+ }
+ }
+  output {
+  elasticsearch { hosts =&gt; [&quot;ox1:9200&quot;] }
+  stdout { codec =&gt; rubydebug }
+}
+</code></pre><ul>
+<li><p>执行<br>./bin/logstash -f conf/logstash-indexer.conf</p>
+</li>
+<li><p>安装完成之后，在path里指定的文件中输入文字，可以在终端/9200中看到结果</p>
+</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h4 id="索引-index"><a href="#索引-index" class="headerlink" title="索引(index)"></a>索引(index)</h4><h5 id="新建索引"><a href="#新建索引" class="headerlink" title="新建索引"></a>新建索引</h5><pre><code>curl -X PUT &apos;localhost:9200/weather&apos;
+
+需要指定中文分词的索引  
+curl -X PUT &apos;localhost:9200/accounts&apos; -d &apos;
+{
+ &quot;mappings&quot;: {
+   &quot;person&quot;: {
+    &quot;properties&quot;: {
+      &quot;user&quot;: {
+         &quot;type&quot;: &quot;text&quot;,
+         &quot;analyzer&quot;: &quot;ik_max_word&quot;,
+         &quot;search_analyzer&quot;: &quot;ik_max_word&quot;
+       },
+      &quot;title&quot;: {
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;analyzer&quot;: &quot;ik_max_word&quot;,
+        &quot;search_analyzer&quot;: &quot;ik_max_word&quot;
+      },
+        &quot;desc&quot;: {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;analyzer&quot;: &quot;ik_max_word&quot;,
+          &quot;search_analyzer&quot;: &quot;ik_max_word&quot;
+        }
+      }
+    }
+  }
+}&apos;
+</code></pre><h5 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h5><pre><code>curl -X DELETE &apos;localhost:9200/weather&apos;
+</code></pre><h5 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h5><pre><code> 查询所有索引  
+curl -X GET &apos;http://localhost:9200/_cat/indices?v&apos;
+</code></pre><h4 id="记录-document"><a href="#记录-document" class="headerlink" title="记录(document)"></a>记录(document)</h4><h5 id="新增记录"><a href="#新增记录" class="headerlink" title="新增记录"></a>新增记录</h5><pre><code>   #指定id为1
+curl -X PUT &apos;localhost:9200/accounts/person/1&apos; -d &apos;   
+{
+ &quot;user&quot;: &quot;张三&quot;,
+  &quot;title&quot;: &quot;工程师&quot;,
+  &quot;desc&quot;: &quot;数据库管理&quot;
+}&apos; 
+
+# 不指定id ，为随机值，此时为POST方法
+ curl -X POST &apos;localhost:9200/accounts/person&apos; -d &apos;
+{
+ &quot;user&quot;: &quot;李四&quot;,
+  &quot;title&quot;: &quot;工程师&quot;,
+  &quot;desc&quot;: &quot;系统管理&quot;
+}&apos;
+</code></pre><h5 id="查询记录"><a href="#查询记录" class="headerlink" title="查询记录"></a>查询记录</h5><pre><code>curl &apos;localhost:9200/accounts/person/1?pretty=true&apos;
+</code></pre><h5 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h5><pre><code>curl -X DELETE &apos;localhost:9200/accounts/person/1&apos;
+</code></pre><h5 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h5><pre><code> curl -X PUT &apos;localhost:9200/accounts/person/1&apos; -d &apos;
+{
+   &quot;user&quot; : &quot;张三&quot;,
+    &quot;title&quot; : &quot;工程师&quot;,
+    &quot;desc&quot; : &quot;数据库管理，软件开发&quot;
+}&apos;
+</code></pre><h4 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h4><h5 id="返回所有记录"><a href="#返回所有记录" class="headerlink" title="返回所有记录"></a>返回所有记录</h5><pre><code>curl &apos;localhost:9200/accounts/person/_search&apos;
+</code></pre>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/15/MRExample-1/" title= MRExample >
+                    <span>Previous Post</span>
+                    <span>MRExample</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:MooIamAfish@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/MooIamAfish" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ElasticSearch笔记"><span class="toc-number">1.</span> <span class="toc-text"><a href="#ElasticSearch&#x7B14;&#x8BB0;" class="headerlink" title="ElasticSearch&#x7B14;&#x8BB0;"></a>ElasticSearch&#x7B14;&#x8BB0;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x6982;&#x5FF5;" class="headerlink" title="&#x6982;&#x5FF5;"></a>&#x6982;&#x5FF5;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Near-Realtime-NRT"><span class="toc-number">1.1.1.</span> <span class="toc-text"><a href="#Near-Realtime-NRT" class="headerlink" title="Near Realtime(NRT)"></a>Near Realtime(NRT)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集群"><span class="toc-number">1.1.2.</span> <span class="toc-text"><a href="#&#x96C6;&#x7FA4;" class="headerlink" title="&#x96C6;&#x7FA4;"></a>&#x96C6;&#x7FA4;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点"><span class="toc-number">1.1.3.</span> <span class="toc-text"><a href="#&#x8282;&#x70B9;" class="headerlink" title="&#x8282;&#x70B9;"></a>&#x8282;&#x70B9;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引"><span class="toc-number">1.1.4.</span> <span class="toc-text"><a href="#&#x7D22;&#x5F15;" class="headerlink" title="&#x7D22;&#x5F15;"></a>&#x7D22;&#x5F15;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档"><span class="toc-number">1.1.5.</span> <span class="toc-text"><a href="#&#x6587;&#x6863;" class="headerlink" title="&#x6587;&#x6863;"></a>&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分片和副本"><span class="toc-number">1.1.6.</span> <span class="toc-text"><a href="#&#x5206;&#x7247;&#x548C;&#x526F;&#x672C;" class="headerlink" title="&#x5206;&#x7247;&#x548C;&#x526F;&#x672C;"></a>&#x5206;&#x7247;&#x548C;&#x526F;&#x672C;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本集群安装"><span class="toc-number">1.2.1.</span> <span class="toc-text"><a href="#&#x57FA;&#x672C;&#x96C6;&#x7FA4;&#x5B89;&#x88C5;" class="headerlink" title="&#x57FA;&#x672C;&#x96C6;&#x7FA4;&#x5B89;&#x88C5;"></a>&#x57FA;&#x672C;&#x96C6;&#x7FA4;&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head安装"><span class="toc-number">1.2.2.</span> <span class="toc-text"><a href="#head&#x5B89;&#x88C5;" class="headerlink" title="head&#x5B89;&#x88C5;"></a>head&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文分词安装"><span class="toc-number">1.2.3.</span> <span class="toc-text"><a href="#&#x4E2D;&#x6587;&#x5206;&#x8BCD;&#x5B89;&#x88C5;" class="headerlink" title="&#x4E2D;&#x6587;&#x5206;&#x8BCD;&#x5B89;&#x88C5;"></a>&#x4E2D;&#x6587;&#x5206;&#x8BCD;&#x5B89;&#x88C5;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网络安装"><span class="toc-number">1.2.3.1.</span> <span class="toc-text"><a href="#&#x7F51;&#x7EDC;&#x5B89;&#x88C5;" class="headerlink" title="&#x7F51;&#x7EDC;&#x5B89;&#x88C5;"></a>&#x7F51;&#x7EDC;&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#离线环境"><span class="toc-number">1.2.3.2.</span> <span class="toc-text"><a href="#&#x79BB;&#x7EBF;&#x73AF;&#x5883;" class="headerlink" title="&#x79BB;&#x7EBF;&#x73AF;&#x5883;"></a>&#x79BB;&#x7EBF;&#x73AF;&#x5883;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kibana安装"><span class="toc-number">1.2.4.</span> <span class="toc-text"><a href="#Kibana&#x5B89;&#x88C5;" class="headerlink" title="Kibana&#x5B89;&#x88C5;"></a>Kibana&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logstash安装"><span class="toc-number">1.2.5.</span> <span class="toc-text"><a href="#Logstash&#x5B89;&#x88C5;" class="headerlink" title="Logstash&#x5B89;&#x88C5;"></a>Logstash&#x5B89;&#x88C5;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-number">1.3.</span> <span class="toc-text"><a href="#&#x57FA;&#x672C;&#x4F7F;&#x7528;" class="headerlink" title="&#x57FA;&#x672C;&#x4F7F;&#x7528;"></a>&#x57FA;&#x672C;&#x4F7F;&#x7528;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#索引-index"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"><a href="#&#x7D22;&#x5F15;-index" class="headerlink" title="&#x7D22;&#x5F15;(index)"></a>&#x7D22;&#x5F15;(index)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#新建索引"><span class="toc-number">1.3.0.1.1.</span> <span class="toc-text"><a href="#&#x65B0;&#x5EFA;&#x7D22;&#x5F15;" class="headerlink" title="&#x65B0;&#x5EFA;&#x7D22;&#x5F15;"></a>&#x65B0;&#x5EFA;&#x7D22;&#x5F15;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除索引"><span class="toc-number">1.3.0.1.2.</span> <span class="toc-text"><a href="#&#x5220;&#x9664;&#x7D22;&#x5F15;" class="headerlink" title="&#x5220;&#x9664;&#x7D22;&#x5F15;"></a>&#x5220;&#x9664;&#x7D22;&#x5F15;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查询索引"><span class="toc-number">1.3.0.1.3.</span> <span class="toc-text"><a href="#&#x67E5;&#x8BE2;&#x7D22;&#x5F15;" class="headerlink" title="&#x67E5;&#x8BE2;&#x7D22;&#x5F15;"></a>&#x67E5;&#x8BE2;&#x7D22;&#x5F15;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#记录-document"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"><a href="#&#x8BB0;&#x5F55;-document" class="headerlink" title="&#x8BB0;&#x5F55;(document)"></a>&#x8BB0;&#x5F55;(document)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#新增记录"><span class="toc-number">1.3.0.2.1.</span> <span class="toc-text"><a href="#&#x65B0;&#x589E;&#x8BB0;&#x5F55;" class="headerlink" title="&#x65B0;&#x589E;&#x8BB0;&#x5F55;"></a>&#x65B0;&#x589E;&#x8BB0;&#x5F55;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查询记录"><span class="toc-number">1.3.0.2.2.</span> <span class="toc-text"><a href="#&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;" class="headerlink" title="&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;"></a>&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除记录"><span class="toc-number">1.3.0.2.3.</span> <span class="toc-text"><a href="#&#x5220;&#x9664;&#x8BB0;&#x5F55;" class="headerlink" title="&#x5220;&#x9664;&#x8BB0;&#x5F55;"></a>&#x5220;&#x9664;&#x8BB0;&#x5F55;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更新数据"><span class="toc-number">1.3.0.2.4.</span> <span class="toc-text"><a href="#&#x66F4;&#x65B0;&#x6570;&#x636E;" class="headerlink" title="&#x66F4;&#x65B0;&#x6570;&#x636E;"></a>&#x66F4;&#x65B0;&#x6570;&#x636E;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据操作"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"><a href="#&#x6570;&#x636E;&#x64CD;&#x4F5C;" class="headerlink" title="&#x6570;&#x636E;&#x64CD;&#x4F5C;"></a>&#x6570;&#x636E;&#x64CD;&#x4F5C;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#返回所有记录"><span class="toc-number">1.3.0.3.1.</span> <span class="toc-text"><a href="#&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x8BB0;&#x5F55;" class="headerlink" title="&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x8BB0;&#x5F55;"></a>&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x8BB0;&#x5F55;</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2017/12/22/ES-install/" >ES_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2017/12/15/MRExample/" >first</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2017/12/15/MRExample-1/" >MRExample</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/搭建博客/" >webpack3+vue2 项目搭建(without vue-cli)</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">mapreduce</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">webpack</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
